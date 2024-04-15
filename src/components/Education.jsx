@@ -1,9 +1,10 @@
-function Education() {
+
+function Education({institute, gpa, course, dates}) {
     return ( 
         <div className="edu">
-            <div className="date">2022 - Present</div>
-            <div className="info"><h4>St. Xavier's College, Mumbai</h4><div>Bachelor of Science, Information Technology</div> </div>
-            <div className="gpa">9.0 GPA</div>
+            <div className="date">{dates}</div>
+            <div className="info"><h4>{institute}</h4><div>{course}</div> </div>
+            <div className="gpa">{gpa ? gpa + " GPA":""}</div>
         </div>
      );
 }

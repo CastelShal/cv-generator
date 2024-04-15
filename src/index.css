@@ -1,38 +1,55 @@
 .top-level {
   padding: 50px;
+  padding-bottom: 0;
   background-color: azure;
+  display: flex;
 }
 
 #sidepanel {
+  position: relative;
+  margin-left: -50px;
+  margin-top: -50px;
   height: 100vh;
-  position: fixed;
-  right:0;
-  top:0;
   background-color: aliceblue;
   transition: 200ms;
   overflow-y: scroll;
+  overflow-x: visible;
+}
+
+.sp-wrapper{
+  display: flex;
+  padding: 0px 8px;
 }
 
 button#drawer{
-  position: absolute;
+  position: sticky;
   top: 50vh;
-  left: -20px;
-  width: 20px;
   height: 35px;
 }
 
 .data-collector {
   margin: 20px;
-  overflow: scroll;
+}
+
+.title {
+  font-size: 1rem;
 }
 
 textarea{
   margin: 10px 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
 }
 
 .data-collector button {
   display: block;
+}
+
+button[type=submit]{
+  min-width: 50px;
+  min-height: 20px;
+  align-self: flex-start;
+  margin-top: 10px;
 }
 
 .inputs{
@@ -49,4 +66,9 @@ textarea{
 
 input[type=number]{
   width: 100px;
+}
+
+.inputs.spaced {
+  gap: 3px;
+  margin-top: 12px;
 }
