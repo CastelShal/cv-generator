@@ -1,7 +1,52 @@
-body {
+.top-level {
   padding: 50px;
+  background-color: azure;
 }
 
-div {
-  background-color: azure;
+#sidepanel {
+  height: 100vh;
+  position: fixed;
+  right:0;
+  top:0;
+  background-color: aliceblue;
+  transition: 200ms;
+  overflow-y: scroll;
+}
+
+button#drawer{
+  position: absolute;
+  top: 50vh;
+  left: -20px;
+  width: 20px;
+  height: 35px;
+}
+
+.data-collector {
+  margin: 20px;
+  overflow: scroll;
+}
+
+textarea{
+  margin: 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.data-collector button {
+  display: block;
+}
+
+.inputs{
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 20px;
+}
+
+.ip-group {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+input[type=number]{
+  width: 100px;
 }
