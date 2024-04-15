@@ -8,10 +8,10 @@ const defSkills = [
     "Linux server administration"
 ]
 
-function Skills({ skills }) {
+function Skills({ data }) {
     return (
         <ul>
-            {skills.map(skill => <li>{skill}</li>)}
+            {data.map(skill => <li>{skill}</li>)}
         </ul>
     );
 }

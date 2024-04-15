@@ -2,40 +2,52 @@ import { useState } from "react";
 import ContentSection from "./contentSection.jsx";
 import AddProjects from "./addProjects.jsx";
 import AddEducation from "./addEducation.jsx";
-function SidePanel() {
+import Summary from "./summary.jsx";
+function SidePanel({ summaryCallback, skillCallback, projCallback, eduCallback }) {
     const [width, setWidth] = useState("500px");
-    const [skills, setSkills] = useState([]);
+    const [noSk, setNoSk] = useState(0);
+
+    const skills = []
+    for (let i = 0; i < noSk; i++) {
+        skills.push(<div>
+            <input type="text" className="skill" onChange={sendSkills}/>
+        </div>)
+    }
+
     function handleDrawer() {
         setWidth(width == "0px" ? "500px" : "0px");
     }
 
-    return <div id='sidepanel' style={{ width: width }}>
-        <button id="drawer" onClick={handleDrawer}> {width == "500px" ? ">" : "<"} </button>
-        <div className="data-collector">
-            <ContentSection title="Summary">
-                This can be a short description of yourself
-                <textarea name="summary" id="summ" cols="35" rows="3"></textarea>
-                <button type="submit" className="submit">Submit</button>
-            </ContentSection>
-            <ContentSection title="Projects">
-                <AddProjects />
-            </ContentSection>
-            <ContentSection title="Education">
-                <AddEducation/>
-            </ContentSection>
-            <ContentSection title="Skills">
-                <button onClick={()=>{setSkills([...skills,""])}}>Add New Skill</button>
-                {skills.map(skill => <div>
-                    <input type="text" value={skill} onChange={(val) => {
-                        const copy = skills.slice();
-                        const index = copy.findIndex((e) => skill == e);
-                        copy[index] = val.target.value;
-                        setSkills(copy);
-                    }}/>
-                </div> )}
-            </ContentSection>
+    function sendSkills() {
+        const skillRay = [...document.querySelectorAll('.skill')].map(tag => tag.value);
+        skillCallback(skillRay);
+    }
+
+    return (
+        <div className="sp-wrapper">
+            <div id='sidepanel' style={{ width: width }}>
+                <div className="data-collector">
+                    <ContentSection title="Personal Details">
+                        <Summary sumCallback={summaryCallback}/>
+                    </ContentSection>
+                    <ContentSection title="Projects">
+                        <AddProjects callback={projCallback} />
+                    </ContentSection>
+                    <ContentSection title="Education">
+                        <AddEducation callback={eduCallback} />
+                    </ContentSection>
+                    <ContentSection title="Skills">
+                        <button onClick={() => { setNoSk(noSk + 1) }}>Add New Skill</button>
+                        <div className="inputs spaced">{skills}</div>
+                        <button type="submit" className="submit" onClick={sendSkills}>Submit</button>
+                    </ContentSection>
+                </div>
+            </div>
+            <div id="button">
+                <button id="drawer" onClick={handleDrawer}> {width == "500px" ? "<" : ">"} </button>
+            </div>
         </div>
-    </div>
+    )
 }
 
 export default SidePanel;
