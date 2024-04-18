@@ -18,7 +18,7 @@ function Summary({sumCallback}) {
                     <input type="text" name="role" id="role" placeholder="Role or position" onChange={getSummary}/>
                     <input type="text" name="site" id="site" placeholder="Website (if any)" onChange={getSummary}/>
                     <textarea name = "summary" id = "summ" cols = "35" rows = "3" placeholder="Describe Yourself" onChange={getSummary}></textarea >
-                    <button type="submit" className="submit" onClick={getSummary}>Submit</button>
+                    {/* <button type="submit" className="submit" onClick={getSummary}>Submit</button> */}
                 </div>
             </div>  
     );

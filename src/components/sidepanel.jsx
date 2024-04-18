@@ -39,7 +39,7 @@ function SidePanel({ summaryCallback, skillCallback, projCallback, eduCallback }
                     <ContentSection title="Skills">
                         <button onClick={() => { setNoSk(noSk + 1) }}>Add New Skill</button>
                         <div className="inputs spaced">{skills}</div>
-                        <button type="submit" className="submit" onClick={sendSkills}>Submit</button>
+                        {/* <button type="submit" className="submit" onClick={sendSkills}>Submit</button> */}
                     </ContentSection>
                 </div>
             </div>

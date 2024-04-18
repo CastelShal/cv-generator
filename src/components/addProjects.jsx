@@ -36,7 +36,7 @@ function AddProjects({callback}) {
             <button onClick={()=> setNo(no + 1)}> Add New Project </button>
             <div className="inputs">
                 {jsx}
-                <button type="submit" className="submit" onClick={getAllProjects}>Submit</button>
+                {/* <button type="submit" className="submit" onClick={getAllProjects}>Submit</button> */}
             </div>
         </>
     );
